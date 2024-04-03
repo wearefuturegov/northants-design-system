@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { VisuallyHidden } from '../../helpers/style-helpers';
 
 export const Container = styled.div`
@@ -15,6 +15,7 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 5px;
   ${hideLabel}
+  font-weight: ${(props) => (props.$boldLabel ? 'bold' : 'normal')};
 `;
 
 export const Select = styled.select`
@@ -27,6 +28,8 @@ export const Select = styled.select`
   padding: 5px;
   border: 2px solid
     ${(props) => (props.$isErrored ? props.theme.theme_vars.colours.negative : props.theme.theme_vars.colours.black)};
+  display: block;
+  background-color: ${(props) => props.theme.theme_vars.colours.white};
 
   &:focus {
     outline: 2px transparent solid;

@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
-
 import { DropDownSelectProps } from './DropDownSelect.types';
 import * as Styles from './DropDownSelect.styles';
+import HintText from '../HintText/HintText';
 
-import { handleParams } from '../../helpers/url-helpers.js';
-
-const DropDownSelect: React.FC<DropDownSelectProps> = ({
+const DropDownSelect: React.FunctionComponent<DropDownSelectProps> = ({
   id,
   label,
   options,
   onChange,
   selected,
   hideLabel = false,
+  boldLabel = false,
+  hintText,
   isErrored = false,
   errorText,
 }) => {
   return (
     <Styles.Container>
-      <Styles.Label htmlFor={id} $hideLabel={hideLabel}>
+      <Styles.Label htmlFor={id} $hideLabel={hideLabel} $boldLabel={boldLabel}>
         {label}
       </Styles.Label>
+      {hintText && <HintText text={hintText} />}
       {errorText && <Styles.ErrorText>{errorText}</Styles.ErrorText>}
       <Styles.Select
         id={id}

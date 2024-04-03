@@ -30,6 +30,16 @@ export interface DropDownSelectProps {
   hideLabel?: boolean;
 
   /**
+   * Should the label text be bold?
+   */
+  boldLabel?: boolean;
+
+  /**
+   * Optional hint text for the input
+   */
+  hintText?: string;
+
+  /**
    * Is the dropdown in error state? Defaults to false
    */
   isErrored?: boolean;
